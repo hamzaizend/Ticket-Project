@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Ticket Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Ticket List</h1>
+    <a href="/new">Create New Ticket</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Ticket ID</th>
+                <th>Name</th>
+                <th>Contenu</th>
+                
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="Ticket : ${listTickets}">
+                <td th:text="${Ticket.id}">Ticket ID</td>
+                <td th:text="${Ticket.name}">Name</td>
+                <td th:text="${Ticket.contenu}">Contenu</td>
+                <td><a th:href="@{/edit/{id}(id=${Ticket.id})}">Edit</a></td>
+                    <td><a th:href="@{/delete/{id}(id=${Ticket.id})}">Delete</a></td>
+               
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>
